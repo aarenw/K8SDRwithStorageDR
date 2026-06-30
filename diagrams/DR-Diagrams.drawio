@@ -1,0 +1,592 @@
+<mxfile host="app.diagrams.net" modified="2026-06-26T00:00:00.000Z" agent="Claude" version="24.7.6" type="device">
+
+  <!-- ================================================================== -->
+  <!--  Page 1: System Context  —  Red Hat Style                           -->
+  <!-- ================================================================== -->
+  <diagram id="ctx" name="1. System Context">
+    <mxGraphModel dx="1422" dy="820" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1500" pageHeight="920" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Red Hat top accent bar -->
+        <mxCell id="bar" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#CC0000;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="1500" height="6" as="geometry"/>
+        </mxCell>
+
+        <!-- Title -->
+        <mxCell id="t1" value="System Context — K8S DR with Storage DR" style="text;html=1;fontSize=22;fontStyle=1;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#151515;fontFamily=Red Hat Display;" vertex="1" parent="1">
+          <mxGeometry x="350" y="12" width="600" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- ── Actors ── -->
+        <mxCell id="a1" value="&lt;font color=&apos;#151515&apos;&gt;&lt;b&gt;DR Admin / Operator&lt;/b&gt;&lt;/font&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#3C3F42;strokeColor=#3C3F42;fontStyle=0;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="365" y="65" width="40" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="a2" value="&lt;font color=&apos;#151515&apos;&gt;&lt;b&gt;IT Manager&lt;/b&gt;&lt;/font&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#3C3F42;strokeColor=#3C3F42;fontStyle=0;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="935" y="65" width="40" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- ── Center: Project Scope (Red Hat Red) ── -->
+        <mxCell id="s1" value="&lt;b style=&apos;font-size:16px;color:#CC0000&apos;&gt;K8S DR Automation&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;i style=&apos;color:#6A6E73&apos;&gt;[Ansible Playbooks + Inventory]&lt;/i&gt;&lt;br&gt;&lt;br&gt;&lt;span style=&apos;color:#151515&apos;&gt;200+ VM / 20+ 容器应用&lt;br&gt;灾难恢复自动化编排&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF0F0;strokeColor=#CC0000;strokeWidth=3;fontSize=12;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="430" y="260" width="460" height="210" as="geometry"/>
+        </mxCell>
+
+        <!-- ── Platform: Red Hat AAP 2.7 ── -->
+        <mxCell id="p1" value="&lt;b style=&apos;color:#CC0000&apos;&gt;Red Hat Ansible&lt;br&gt;Automation Platform 2.7&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;i style=&apos;color:#6A6E73&apos;&gt;[自动化运行平台]&lt;/i&gt;&lt;br&gt;&lt;span style=&apos;color:#151515&apos;&gt;Workflow / Job Template&lt;br&gt;Schedule / RBAC&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FCEAE8;strokeColor=#EE0000;strokeWidth=2;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="20" y="280" width="230" height="160" as="geometry"/>
+        </mxCell>
+
+        <!-- ── Dependencies ── -->
+        <mxCell id="d1" value="&lt;b style=&apos;color:#151515&apos;&gt;Git Repository&lt;/b&gt;&lt;br&gt;&lt;i style=&apos;color:#6A6E73&apos;&gt;[SCM / 代码仓库]&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#6A6E73;dashed=1;dashPattern=8 4;fontSize=11;arcSize=10;" vertex="1" parent="1">
+          <mxGeometry x="20" y="100" width="200" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="d2" value="&lt;b style=&apos;color:#151515&apos;&gt;Email / Slack / Webhook&lt;/b&gt;&lt;br&gt;&lt;i style=&apos;color:#6A6E73&apos;&gt;[通知渠道]&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#6A6E73;dashed=1;dashPattern=8 4;fontSize=11;arcSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1130" y="100" width="220" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="d3" value="&lt;b style=&apos;color:#151515&apos;&gt;GSLB / F5 GTM&lt;/b&gt;&lt;br&gt;&lt;i style=&apos;color:#6A6E73&apos;&gt;[全局负载均衡]&lt;/i&gt;&lt;br&gt;&lt;span style=&apos;color:#151515&apos;&gt;DNS 自动切换&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#6A6E73;dashed=1;dashPattern=8 4;fontSize=11;arcSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1130" y="300" width="220" height="110" as="geometry"/>
+        </mxCell>
+        <!-- OCP: Red Hat product but external dependency — red border, dashed -->
+        <mxCell id="d4" value="&lt;b style=&apos;color:#CC0000&apos;&gt;Red Hat OpenShift DC1&lt;/b&gt;&lt;br&gt;&lt;i style=&apos;color:#6A6E73&apos;&gt;[主集群]&lt;/i&gt;&lt;br&gt;&lt;span style=&apos;color:#151515&apos;&gt;200+ VM, 20+ 容器应用&lt;br&gt;OpenShift Virtualization&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF5F5;strokeColor=#CC0000;dashed=1;dashPattern=8 4;strokeWidth=1.5;fontSize=11;arcSize=10;" vertex="1" parent="1">
+          <mxGeometry x="70" y="630" width="280" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="d5" value="&lt;b style=&apos;color:#CC0000&apos;&gt;Red Hat OpenShift DC2&lt;/b&gt;&lt;br&gt;&lt;i style=&apos;color:#6A6E73&apos;&gt;[温备集群]&lt;/i&gt;&lt;br&gt;&lt;span style=&apos;color:#151515&apos;&gt;VM 定义预置 (未启动)&lt;br&gt;OpenShift Virtualization&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF5F5;strokeColor=#CC0000;dashed=1;dashPattern=8 4;strokeWidth=1.5;fontSize=11;arcSize=10;" vertex="1" parent="1">
+          <mxGeometry x="460" y="630" width="280" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="d6" value="&lt;b style=&apos;color:#151515&apos;&gt;Dell Powerstore&lt;/b&gt;&lt;br&gt;&lt;i style=&apos;color:#6A6E73&apos;&gt;[SAN 存储 DC1 + DC2]&lt;/i&gt;&lt;br&gt;&lt;span style=&apos;color:#151515&apos;&gt;Metro 同步复制, RPO=0&lt;br&gt;FC 光纤通道&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#6A6E73;dashed=1;dashPattern=8 4;fontSize=11;arcSize=10;" vertex="1" parent="1">
+          <mxGeometry x="870" y="630" width="280" height="120" as="geometry"/>
+        </mxCell>
+
+        <!-- ── Edges ── -->
+        <mxCell id="e1" value="触发 Failover / Failback&lt;br&gt;(Survey 确认)" style="endArrow=open;endFill=0;html=1;strokeWidth=1.5;fontSize=10;fontColor=#3C3F42;strokeColor=#3C3F42;entryX=0.35;entryY=0;entryDx=0;entryDy=0;" edge="1" source="a1" target="s1" parent="1">
+          <mxGeometry x="-0.2" y="10" relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" value="查看状态 / 报告&lt;br&gt;(AAP Web UI)" style="endArrow=open;endFill=0;html=1;strokeWidth=1.5;fontSize=10;fontColor=#3C3F42;strokeColor=#6A6E73;dashed=1;entryX=0.7;entryY=0;entryDx=0;entryDy=0;" edge="1" source="a2" target="s1" parent="1">
+          <mxGeometry x="-0.2" y="-10" relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" value="部署并运行于" style="endArrow=open;endFill=0;html=1;strokeWidth=1.5;fontSize=10;fontColor=#3C3F42;strokeColor=#CC0000;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="s1" target="p1" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e4" value="Playbook / Inventory&lt;br&gt;SCM 同步" style="endArrow=open;endFill=0;html=1;strokeWidth=1.5;fontSize=10;fontColor=#3C3F42;strokeColor=#3C3F42;startArrow=open;startFill=0;exitX=0.15;exitY=0;exitDx=0;exitDy=0;" edge="1" source="s1" target="d1" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e5" value="导出 VM / App 配置" style="endArrow=open;endFill=0;html=1;strokeWidth=1.5;fontSize=10;fontColor=#3C3F42;strokeColor=#3C3F42;exitX=0.15;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" source="s1" target="d4" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e6" value="部署 / 恢复&lt;br&gt;VM 和容器" style="endArrow=open;endFill=0;html=1;strokeWidth=1.5;fontSize=10;fontColor=#3C3F42;strokeColor=#3C3F42;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" source="s1" target="d5" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e7" value="Metro Failover&lt;br&gt;REST API" style="endArrow=open;endFill=0;html=1;strokeWidth=1.5;fontSize=10;fontColor=#3C3F42;strokeColor=#3C3F42;exitX=0.85;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" source="s1" target="d6" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e8" value="DNS 切换 API" style="endArrow=open;endFill=0;html=1;strokeWidth=1.5;fontSize=10;fontColor=#3C3F42;strokeColor=#3C3F42;exitX=1;exitY=0.4;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="s1" target="d3" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e9" value="告警通知 / 报告" style="endArrow=open;endFill=0;html=1;strokeWidth=1.5;fontSize=10;fontColor=#3C3F42;strokeColor=#3C3F42;exitX=0.85;exitY=0;exitDx=0;exitDy=0;" edge="1" source="s1" target="d2" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- ── Legend ── -->
+        <mxCell id="lg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#D2D2D2;fontSize=10;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="1180" y="700" width="240" height="160" as="geometry"/>
+        </mxCell>
+        <mxCell id="lg0" value="&lt;b style=&apos;color:#151515&apos;&gt;图例&lt;/b&gt;" style="text;html=1;fontSize=12;fontStyle=1;align=left;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1190" y="708" width="60" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="lg1" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF0F0;strokeColor=#CC0000;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="1195" y="735" width="22" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="lg1t" value="&lt;span style=&apos;color:#151515&apos;&gt;项目范围 (Ansible Code)&lt;/span&gt;" style="text;html=1;fontSize=10;align=left;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1225" y="732" width="170" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="lg2" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FCEAE8;strokeColor=#EE0000;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="1195" y="758" width="22" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="lg2t" value="&lt;span style=&apos;color:#151515&apos;&gt;Red Hat 产品 (AAP / OCP)&lt;/span&gt;" style="text;html=1;fontSize=10;align=left;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1225" y="755" width="170" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="lg3" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#6A6E73;dashed=1;dashPattern=8 4;" vertex="1" parent="1">
+          <mxGeometry x="1195" y="781" width="22" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="lg3t" value="&lt;span style=&apos;color:#151515&apos;&gt;外部基础设施依赖&lt;/span&gt;" style="text;html=1;fontSize=10;align=left;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1225" y="778" width="170" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="lg4" value="" style="shape=umlActor;fillColor=#3C3F42;strokeColor=#3C3F42;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="802" width="14" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="lg4t" value="&lt;span style=&apos;color:#151515&apos;&gt;用户角色&lt;/span&gt;" style="text;html=1;fontSize=10;align=left;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1225" y="802" width="80" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="lg5" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF5F5;strokeColor=#CC0000;dashed=1;dashPattern=8 4;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="1195" y="828" width="22" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="lg5t" value="&lt;span style=&apos;color:#151515&apos;&gt;Red Hat 产品 (依赖)&lt;/span&gt;" style="text;html=1;fontSize=10;align=left;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1225" y="825" width="170" height="20" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+
+  <!-- ================================================================== -->
+  <!--  Page 2: Architecture Overview  —  Red Hat Style                    -->
+  <!-- ================================================================== -->
+  <diagram id="arch" name="2. Architecture Overview">
+    <mxGraphModel dx="1422" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1500" pageHeight="1300" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Red Hat top accent bar -->
+        <mxCell id="bar2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#CC0000;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="1500" height="6" as="geometry"/>
+        </mxCell>
+
+        <!-- Title -->
+        <mxCell id="t2" value="Architecture Overview — K8S DR with Storage DR" style="text;html=1;fontSize=22;fontStyle=1;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#151515;" vertex="1" parent="1">
+          <mxGeometry x="300" y="12" width="700" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- ════════════════════════════════════════════════════ -->
+        <!-- Layer 1: User Interaction                            -->
+        <!-- ════════════════════════════════════════════════════ -->
+        <mxCell id="L1" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#D2D2D2;arcSize=3;" vertex="1" parent="1">
+          <mxGeometry x="30" y="60" width="1380" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="L1h" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#3C3F42;strokeColor=#3C3F42;arcSize=0;" vertex="1" parent="1">
+          <mxGeometry x="30" y="60" width="1380" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="L1t" value="&lt;b style=&apos;color:#FFFFFF&apos;&gt;USER INTERACTION&lt;/b&gt;" style="text;html=1;fontSize=12;align=left;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="40" y="62" width="200" height="24" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="L1a" value="&lt;b&gt;DR Admin&lt;br&gt;/ Operator&lt;/b&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#3C3F42;strokeColor=#3C3F42;fontSize=9;fontColor=#151515;" vertex="1" parent="1">
+          <mxGeometry x="120" y="93" width="25" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="L1b" value="&lt;b style=&apos;color:#CC0000&apos;&gt;AAP Web Console&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FCEAE8;strokeColor=#EE0000;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="280" y="98" width="180" height="45" as="geometry"/>
+        </mxCell>
+        <mxCell id="L1c" value="&lt;b style=&apos;color:#CC0000&apos;&gt;Survey 确认&lt;/b&gt;&lt;br&gt;&lt;span style=&apos;color:#151515&apos;&gt;YES-FAILOVER&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FCEAE8;strokeColor=#EE0000;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="570" y="98" width="180" height="45" as="geometry"/>
+        </mxCell>
+        <mxCell id="L1d" value="&lt;b style=&apos;color:#151515&apos;&gt;Notification&lt;/b&gt;&lt;br&gt;&lt;span style=&apos;color:#6A6E73&apos;&gt;Email / Slack&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#6A6E73;dashed=1;dashPattern=8 4;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="1080" y="98" width="180" height="45" as="geometry"/>
+        </mxCell>
+        <mxCell id="L1e1" style="endArrow=block;endFill=1;html=1;strokeWidth=1.5;strokeColor=#3C3F42;" edge="1" source="L1a" target="L1b" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="L1e2" style="endArrow=block;endFill=1;html=1;strokeWidth=1.5;strokeColor=#3C3F42;" edge="1" source="L1b" target="L1c" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- ════════════════════════════════════════════════════ -->
+        <!-- Layer 2: AAP 2.7 Platform (Red Hat Product)          -->
+        <!-- ════════════════════════════════════════════════════ -->
+        <mxCell id="L2" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#EE0000;strokeWidth=2;arcSize=2;" vertex="1" parent="1">
+          <mxGeometry x="30" y="195" width="1380" height="430" as="geometry"/>
+        </mxCell>
+        <mxCell id="L2h" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#CC0000;strokeColor=#CC0000;arcSize=0;" vertex="1" parent="1">
+          <mxGeometry x="30" y="195" width="1380" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="L2t" value="&lt;b style=&apos;color:#FFFFFF&apos;&gt;RED HAT ANSIBLE AUTOMATION PLATFORM 2.7&lt;/b&gt;&lt;span style=&apos;color:#FFD0D0&apos;&gt;  — Automation Controller&lt;/span&gt;" style="text;html=1;fontSize=12;align=left;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="40" y="197" width="550" height="24" as="geometry"/>
+        </mxCell>
+
+        <!-- Workflow Templates -->
+        <mxCell id="wf_label" value="&lt;b style=&apos;color:#3C3F42&apos;&gt;Workflow Templates&lt;/b&gt;" style="text;html=1;fontSize=12;align=left;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="50" y="230" width="180" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="wf1" value="&lt;b style=&apos;color:#CC0000&apos;&gt;DR-Failover-Master&lt;/b&gt;&lt;br&gt;&lt;span style=&apos;color:#6A6E73&apos;&gt;主 Failover 工作流&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF0F0;strokeColor=#CC0000;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="50" y="255" width="220" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="wf2" value="&lt;b style=&apos;color:#CC0000&apos;&gt;DR-Failback-Master&lt;/b&gt;&lt;br&gt;&lt;span style=&apos;color:#6A6E73&apos;&gt;回切工作流&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF0F0;strokeColor=#CC0000;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="300" y="255" width="220" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="wf3" value="&lt;b style=&apos;color:#CC0000&apos;&gt;DR-Config-Sync&lt;/b&gt;&lt;br&gt;&lt;span style=&apos;color:#6A6E73&apos;&gt;定时配置同步 (每4h)&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF0F0;strokeColor=#CC0000;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="550" y="255" width="220" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="wf4" value="&lt;b style=&apos;color:#CC0000&apos;&gt;DR-Daily-Preflight&lt;/b&gt;&lt;br&gt;&lt;span style=&apos;color:#6A6E73&apos;&gt;每日预检 (Schedule)&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF0F0;strokeColor=#CC0000;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="800" y="255" width="220" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- Job Templates -->
+        <mxCell id="jt_label" value="&lt;b style=&apos;color:#3C3F42&apos;&gt;Job Templates (Failover 工作流内)&lt;/b&gt;" style="text;html=1;fontSize=12;align=left;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="50" y="325" width="300" height="22" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="jt1" value="&lt;b&gt;Preflight&lt;/b&gt;&lt;br&gt;&lt;span style=&apos;color:#6A6E73&apos;&gt;预检&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF0F0;strokeColor=#CC0000;fontSize=10;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="50" y="350" width="110" height="45" as="geometry"/>
+        </mxCell>
+        <mxCell id="jt2" value="&lt;b&gt;Storage&lt;br&gt;Failover&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF0F0;strokeColor=#CC0000;fontSize=10;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="180" y="350" width="110" height="45" as="geometry"/>
+        </mxCell>
+        <mxCell id="jt3" value="&lt;b&gt;FC Scan&lt;br&gt;&amp;amp; Verify&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF0F0;strokeColor=#CC0000;fontSize=10;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="310" y="350" width="110" height="45" as="geometry"/>
+        </mxCell>
+        <mxCell id="jt4" value="&lt;b&gt;VM-P1&lt;/b&gt;&lt;br&gt;&lt;span style=&apos;color:#6A6E73&apos;&gt;~15台 f=15&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF0F0;strokeColor=#CC0000;fontSize=10;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="440" y="350" width="100" height="45" as="geometry"/>
+        </mxCell>
+        <mxCell id="jt5" value="&lt;b&gt;VM-P2&lt;/b&gt;&lt;br&gt;&lt;span style=&apos;color:#6A6E73&apos;&gt;~35台 f=35&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF0F0;strokeColor=#CC0000;fontSize=10;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="560" y="350" width="100" height="45" as="geometry"/>
+        </mxCell>
+        <mxCell id="jt6" value="&lt;b&gt;VM-P3&lt;/b&gt;&lt;br&gt;&lt;span style=&apos;color:#6A6E73&apos;&gt;~50台 f=50&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF0F0;strokeColor=#CC0000;fontSize=10;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="680" y="350" width="100" height="45" as="geometry"/>
+        </mxCell>
+        <mxCell id="jt7" value="&lt;b&gt;Container&lt;br&gt;Apps&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF0F0;strokeColor=#CC0000;fontSize=10;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="800" y="350" width="100" height="45" as="geometry"/>
+        </mxCell>
+        <mxCell id="jt8" value="&lt;b&gt;VM-P4&lt;/b&gt;&lt;br&gt;&lt;span style=&apos;color:#6A6E73&apos;&gt;~100+ f=50&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF0F0;strokeColor=#CC0000;fontSize=10;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="920" y="350" width="100" height="45" as="geometry"/>
+        </mxCell>
+        <mxCell id="jt9" value="&lt;b&gt;Network&lt;br&gt;Cutover&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF0F0;strokeColor=#CC0000;fontSize=10;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="1040" y="350" width="100" height="45" as="geometry"/>
+        </mxCell>
+        <mxCell id="jt10" value="&lt;b&gt;Validate&lt;br&gt;&amp;amp; Report&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF0F0;strokeColor=#CC0000;fontSize=10;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="1160" y="350" width="100" height="45" as="geometry"/>
+        </mxCell>
+
+        <!-- JT flow arrows -->
+        <mxCell id="jtf1" style="endArrow=block;endFill=1;html=1;strokeWidth=1;strokeColor=#3C3F42;" edge="1" source="jt1" target="jt2" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="jtf2" style="endArrow=block;endFill=1;html=1;strokeWidth=1;strokeColor=#3C3F42;" edge="1" source="jt2" target="jt3" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="jtf3" style="endArrow=block;endFill=1;html=1;strokeWidth=1;strokeColor=#3C3F42;" edge="1" source="jt3" target="jt4" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="jtf4" style="endArrow=block;endFill=1;html=1;strokeWidth=1;strokeColor=#3C3F42;" edge="1" source="jt4" target="jt5" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Parallel bracket for P2/P3/Container -->
+        <mxCell id="par_box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#0066CC;strokeWidth=2;dashed=1;dashPattern=5 3;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="550" y="340" width="360" height="65" as="geometry"/>
+        </mxCell>
+        <mxCell id="par_label" value="&lt;b style=&apos;color:#0066CC&apos;&gt;并行执行&lt;/b&gt;" style="text;html=1;fontSize=10;align=right;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="820" y="338" width="80" height="15" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="jtf5" style="endArrow=block;endFill=1;html=1;strokeWidth=1;strokeColor=#3C3F42;" edge="1" source="jt5" target="jt8" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="610" y="420"/>
+              <mxPoint x="970" y="420"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="jtf6" style="endArrow=block;endFill=1;html=1;strokeWidth=1;strokeColor=#3C3F42;" edge="1" source="jt8" target="jt9" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="jtf7" style="endArrow=block;endFill=1;html=1;strokeWidth=1;strokeColor=#3C3F42;" edge="1" source="jt9" target="jt10" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Execution Resources -->
+        <mxCell id="er_label" value="&lt;b style=&apos;color:#3C3F42&apos;&gt;Execution Resources&lt;/b&gt;" style="text;html=1;fontSize=12;align=left;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="50" y="445" width="200" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="er1" value="&lt;b style=&apos;color:#CC0000&apos;&gt;Credentials&lt;/b&gt;&lt;br&gt;&lt;span style=&apos;color:#151515&apos;&gt;OCP Tokens&lt;br&gt;Powerstore API&lt;br&gt;GSLB API&lt;br&gt;VM SSH Key&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF0F0;strokeColor=#CC0000;fontSize=10;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="50" y="470" width="150" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="er2" value="&lt;b style=&apos;color:#CC0000&apos;&gt;Inventory&lt;/b&gt;&lt;br&gt;&lt;span style=&apos;color:#151515&apos;&gt;200+ VM host_vars&lt;br&gt;4 优先级分组&lt;br&gt;OS 类型分组&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF0F0;strokeColor=#CC0000;fontSize=10;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="230" y="470" width="150" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="er3" value="&lt;b style=&apos;color:#CC0000&apos;&gt;Schedule&lt;/b&gt;&lt;br&gt;&lt;span style=&apos;color:#151515&apos;&gt;配置导出: 每4h&lt;br&gt;预检: 每日 06:00&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF0F0;strokeColor=#CC0000;fontSize=10;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="410" y="470" width="150" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="er4" value="&lt;b style=&apos;color:#CC0000&apos;&gt;Custom EE&lt;/b&gt;&lt;br&gt;&lt;span style=&apos;color:#151515&apos;&gt;oc CLI&lt;br&gt;virtctl&lt;br&gt;kubernetes.core&lt;br&gt;PyPowerStore SDK&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF0F0;strokeColor=#CC0000;fontSize=10;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="590" y="470" width="150" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="er5" value="&lt;b style=&apos;color:#CC0000&apos;&gt;RBAC&lt;/b&gt;&lt;br&gt;&lt;span style=&apos;color:#151515&apos;&gt;DR Admin&lt;br&gt;DR Operator&lt;br&gt;DR Viewer&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF0F0;strokeColor=#CC0000;fontSize=10;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="770" y="470" width="150" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="er6" value="&lt;b style=&apos;color:#CC0000&apos;&gt;Notifications&lt;/b&gt;&lt;br&gt;&lt;span style=&apos;color:#151515&apos;&gt;阶段完成通知&lt;br&gt;失败告警&lt;br&gt;恢复报告&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF0F0;strokeColor=#CC0000;fontSize=10;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="950" y="470" width="150" height="90" as="geometry"/>
+        </mxCell>
+
+        <!-- ════════════════════════════════════════════════════ -->
+        <!-- Layer 3: Project Code (our scope)                    -->
+        <!-- ════════════════════════════════════════════════════ -->
+        <mxCell id="L3" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#CC0000;strokeWidth=2;arcSize=2;" vertex="1" parent="1">
+          <mxGeometry x="30" y="665" width="1380" height="305" as="geometry"/>
+        </mxCell>
+        <mxCell id="L3h" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#A30000;strokeColor=#A30000;arcSize=0;" vertex="1" parent="1">
+          <mxGeometry x="30" y="665" width="1380" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="L3t" value="&lt;b style=&apos;color:#FFFFFF&apos;&gt;PROJECT CODEBASE&lt;/b&gt;&lt;span style=&apos;color:#FFD0D0&apos;&gt;  — Git Repository (项目范围)&lt;/span&gt;" style="text;html=1;fontSize=12;align=left;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="40" y="667" width="450" height="24" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="pc1" value="&lt;b style=&apos;color:#CC0000&apos;&gt;Playbooks (8)&lt;/b&gt;&lt;hr style=&apos;border-color:#D2D2D2&apos;&gt;&lt;span style=&apos;color:#151515&apos;&gt;preflight.yaml&lt;br&gt;storage-failover.yaml&lt;br&gt;rescan-fc.yaml&lt;br&gt;recover-vms.yaml&lt;br&gt;recover-containers.yaml&lt;br&gt;network-cutover.yaml&lt;br&gt;validate-report.yaml&lt;br&gt;export-configs.yaml&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF0F0;strokeColor=#CC0000;fontSize=10;align=left;spacingLeft=8;verticalAlign=top;spacingTop=5;arcSize=5;" vertex="1" parent="1">
+          <mxGeometry x="60" y="705" width="220" height="240" as="geometry"/>
+        </mxCell>
+        <mxCell id="pc2" value="&lt;b style=&apos;color:#CC0000&apos;&gt;Inventory&lt;/b&gt;&lt;hr style=&apos;border-color:#D2D2D2&apos;&gt;&lt;span style=&apos;color:#151515&apos;&gt;hosts.yaml&lt;br&gt;group_vars/&lt;br&gt;  all.yaml&lt;br&gt;  priority_1_infra.yaml&lt;br&gt;  priority_2_critical.yaml&lt;br&gt;  priority_3_important.yaml&lt;br&gt;  priority_4_general.yaml&lt;br&gt;host_vars/&lt;br&gt;  (200+ VM 配置文件)&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF0F0;strokeColor=#CC0000;fontSize=10;align=left;spacingLeft=8;verticalAlign=top;spacingTop=5;arcSize=5;" vertex="1" parent="1">
+          <mxGeometry x="320" y="705" width="240" height="240" as="geometry"/>
+        </mxCell>
+        <mxCell id="pc3" value="&lt;b style=&apos;color:#CC0000&apos;&gt;Execution Environment&lt;/b&gt;&lt;hr style=&apos;border-color:#D2D2D2&apos;&gt;&lt;span style=&apos;color:#151515&apos;&gt;execution-environment.yml&lt;br&gt;&lt;br&gt;Base: ee-minimal-rhel9:2.7&lt;br&gt;&lt;br&gt;Collections:&lt;br&gt;  kubernetes.core&lt;br&gt;  dellemc.powerstore&lt;br&gt;  community.general&lt;br&gt;&lt;br&gt;System:&lt;br&gt;  oc CLI, virtctl&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF0F0;strokeColor=#CC0000;fontSize=10;align=left;spacingLeft=8;verticalAlign=top;spacingTop=5;arcSize=5;" vertex="1" parent="1">
+          <mxGeometry x="600" y="705" width="230" height="240" as="geometry"/>
+        </mxCell>
+        <mxCell id="pc4" value="&lt;b style=&apos;color:#CC0000&apos;&gt;Templates &amp;amp; Docs&lt;/b&gt;&lt;hr style=&apos;border-color:#D2D2D2&apos;&gt;&lt;span style=&apos;color:#151515&apos;&gt;templates/&lt;br&gt;  dr-report.html.j2&lt;br&gt;&lt;br&gt;collections/&lt;br&gt;  requirements.yml&lt;br&gt;&lt;br&gt;docs/&lt;br&gt;  runbook.md&lt;br&gt;  aap-setup-guide.md&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF0F0;strokeColor=#CC0000;fontSize=10;align=left;spacingLeft=8;verticalAlign=top;spacingTop=5;arcSize=5;" vertex="1" parent="1">
+          <mxGeometry x="870" y="705" width="220" height="240" as="geometry"/>
+        </mxCell>
+
+        <!-- Deploy arrow -->
+        <mxCell id="dep_arrow" value="&lt;b style=&apos;color:#CC0000&apos;&gt;部署到 AAP&lt;/b&gt;" style="endArrow=block;endFill=1;html=1;strokeWidth=2;strokeColor=#CC0000;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" source="L3" target="L2" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- ════════════════════════════════════════════════════ -->
+        <!-- Layer 4: Infrastructure Dependencies                 -->
+        <!-- ════════════════════════════════════════════════════ -->
+        <mxCell id="L4" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#D2D2D2;arcSize=2;" vertex="1" parent="1">
+          <mxGeometry x="30" y="1030" width="1380" height="170" as="geometry"/>
+        </mxCell>
+        <mxCell id="L4h" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#6A6E73;strokeColor=#6A6E73;arcSize=0;" vertex="1" parent="1">
+          <mxGeometry x="30" y="1030" width="1380" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="L4t" value="&lt;b style=&apos;color:#FFFFFF&apos;&gt;INFRASTRUCTURE DEPENDENCIES&lt;/b&gt;&lt;span style=&apos;color:#D2D2D2&apos;&gt;  — 基础设施依赖 (项目外)&lt;/span&gt;" style="text;html=1;fontSize=12;align=left;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="40" y="1032" width="450" height="24" as="geometry"/>
+        </mxCell>
+
+        <!-- RH products in infra: red-tinted -->
+        <mxCell id="inf1" value="&lt;b style=&apos;color:#CC0000&apos;&gt;Red Hat OpenShift DC1&lt;/b&gt;&lt;br&gt;&lt;span style=&apos;color:#6A6E73&apos;&gt;[主集群]&lt;/span&gt;&lt;br&gt;&lt;span style=&apos;color:#151515&apos;&gt;200+ VM, 20+ Apps&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF5F5;strokeColor=#CC0000;fontSize=10;arcSize=6;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="60" y="1070" width="210" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="inf2" value="&lt;b style=&apos;color:#CC0000&apos;&gt;Red Hat OpenShift DC2&lt;/b&gt;&lt;br&gt;&lt;span style=&apos;color:#6A6E73&apos;&gt;[温备集群]&lt;/span&gt;&lt;br&gt;&lt;span style=&apos;color:#151515&apos;&gt;VM 预置未启动&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF5F5;strokeColor=#CC0000;fontSize=10;arcSize=6;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="340" y="1070" width="210" height="90" as="geometry"/>
+        </mxCell>
+        <!-- Non-RH: neutral gray -->
+        <mxCell id="inf3" value="&lt;b style=&apos;color:#151515&apos;&gt;Dell Powerstore&lt;/b&gt;&lt;br&gt;&lt;span style=&apos;color:#6A6E73&apos;&gt;[SAN 存储]&lt;/span&gt;&lt;br&gt;&lt;span style=&apos;color:#151515&apos;&gt;Metro RPO=0, FC&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#6A6E73;fontSize=10;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="620" y="1070" width="210" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="inf4" value="&lt;b style=&apos;color:#151515&apos;&gt;GSLB / F5 GTM&lt;/b&gt;&lt;br&gt;&lt;span style=&apos;color:#6A6E73&apos;&gt;[全局负载均衡]&lt;/span&gt;&lt;br&gt;&lt;span style=&apos;color:#151515&apos;&gt;DNS 切换&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#6A6E73;fontSize=10;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="900" y="1070" width="210" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="inf5" value="&lt;b style=&apos;color:#151515&apos;&gt;Email / Slack&lt;/b&gt;&lt;br&gt;&lt;span style=&apos;color:#6A6E73&apos;&gt;[通知]&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#6A6E73;fontSize=10;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="1180" y="1070" width="160" height="90" as="geometry"/>
+        </mxCell>
+
+        <!-- API arrows -->
+        <mxCell id="api_arrow" value="&lt;span style=&apos;color:#3C3F42&apos;&gt;API 调用 (OCP / Powerstore / GSLB / SMTP)&lt;/span&gt;" style="endArrow=block;endFill=1;html=1;strokeWidth=2;fontSize=11;strokeColor=#3C3F42;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" source="L2" target="L4" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+
+  <!-- ================================================================== -->
+  <!--  Page 3: Failover Sequence  —  Red Hat Style                        -->
+  <!-- ================================================================== -->
+  <diagram id="seq" name="3. Failover Sequence">
+    <mxGraphModel dx="1422" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1500" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Red Hat top accent bar -->
+        <mxCell id="bar3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#CC0000;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="1500" height="6" as="geometry"/>
+        </mxCell>
+
+        <!-- Title -->
+        <mxCell id="t3" value="Failover Sequence — DR 恢复时序图 (RTO ≤ 1h)" style="text;html=1;fontSize=22;fontStyle=1;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#151515;" vertex="1" parent="1">
+          <mxGeometry x="250" y="10" width="800" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- ── Participant Headers ── -->
+        <!-- RH products: red themed; Non-RH: gray -->
+        <mxCell id="ph1" value="&lt;b style=&apos;color:#151515&apos;&gt;DR Operator&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#3C3F42;strokeColor=#3C3F42;fontSize=12;fontColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="80" y="60" width="140" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="ph2" value="&lt;b&gt;AAP Controller&lt;/b&gt;&lt;br&gt;&lt;span style=&apos;font-size:9px&apos;&gt;Workflow Engine&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC0000;strokeColor=#A30000;fontSize=11;fontColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="300" y="55" width="160" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="ph3" value="&lt;b style=&apos;color:#151515&apos;&gt;Powerstore&lt;/b&gt;&lt;br&gt;&lt;span style=&apos;color:#6A6E73;font-size:9px&apos;&gt;REST API&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#6A6E73;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="530" y="55" width="140" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="ph4" value="&lt;b style=&apos;color:#CC0000&apos;&gt;OpenShift DC2&lt;/b&gt;&lt;br&gt;&lt;span style=&apos;color:#6A6E73;font-size:9px&apos;&gt;K8s API&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF5F5;strokeColor=#CC0000;fontSize=11;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="740" y="55" width="150" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="ph5" value="&lt;b style=&apos;color:#CC0000&apos;&gt;200+ VMs&lt;/b&gt;&lt;br&gt;&lt;span style=&apos;color:#6A6E73;font-size:9px&apos;&gt;virtctl&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF5F5;strokeColor=#CC0000;fontSize=11;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="960" y="55" width="130" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="ph6" value="&lt;b style=&apos;color:#151515&apos;&gt;GSLB / GTM&lt;/b&gt;&lt;br&gt;&lt;span style=&apos;color:#6A6E73;font-size:9px&apos;&gt;DNS API&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#6A6E73;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1160" y="55" width="140" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- ── Lifelines ── -->
+        <mxCell id="ll1" style="endArrow=none;dashed=1;html=1;strokeColor=#D2D2D2;strokeWidth=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="150" y="110" as="sourcePoint"/><mxPoint x="150" y="1050" as="targetPoint"/></mxGeometry>
+        </mxCell>
+        <mxCell id="ll2" style="endArrow=none;dashed=1;html=1;strokeColor=#D2D2D2;strokeWidth=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="380" y="110" as="sourcePoint"/><mxPoint x="380" y="1050" as="targetPoint"/></mxGeometry>
+        </mxCell>
+        <mxCell id="ll3" style="endArrow=none;dashed=1;html=1;strokeColor=#D2D2D2;strokeWidth=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="600" y="110" as="sourcePoint"/><mxPoint x="600" y="1050" as="targetPoint"/></mxGeometry>
+        </mxCell>
+        <mxCell id="ll4" style="endArrow=none;dashed=1;html=1;strokeColor=#D2D2D2;strokeWidth=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="815" y="110" as="sourcePoint"/><mxPoint x="815" y="1050" as="targetPoint"/></mxGeometry>
+        </mxCell>
+        <mxCell id="ll5" style="endArrow=none;dashed=1;html=1;strokeColor=#D2D2D2;strokeWidth=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="1025" y="110" as="sourcePoint"/><mxPoint x="1025" y="1050" as="targetPoint"/></mxGeometry>
+        </mxCell>
+        <mxCell id="ll6" style="endArrow=none;dashed=1;html=1;strokeColor=#D2D2D2;strokeWidth=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="1230" y="110" as="sourcePoint"/><mxPoint x="1230" y="1050" as="targetPoint"/></mxGeometry>
+        </mxCell>
+
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- Phase 1: Decision (0-5 min) — Orange                -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <mxCell id="P1" value="&lt;b style=&apos;color:#151515&apos;&gt;Phase 1&lt;/b&gt;&lt;br&gt;&lt;span style=&apos;color:#3C3F42&apos;&gt;故障确认&lt;br&gt;0-5 min&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FDF7E7;strokeColor=#EC7A08;strokeWidth=2;fontSize=10;align=center;arcSize=10;" vertex="1" parent="1">
+          <mxGeometry x="0" y="130" width="72" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="m1" value="Launch DR-Failover-Master" style="endArrow=block;endFill=1;html=1;strokeWidth=1.5;fontSize=10;strokeColor=#3C3F42;fontColor=#151515;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="150" y="140" as="sourcePoint"/><mxPoint x="380" y="140" as="targetPoint"/></mxGeometry>
+        </mxCell>
+        <mxCell id="m2" value="Survey: 输入 YES-FAILOVER" style="endArrow=open;endFill=0;html=1;strokeWidth=1;dashed=1;fontSize=10;strokeColor=#6A6E73;fontColor=#6A6E73;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="380" y="160" as="sourcePoint"/><mxPoint x="150" y="160" as="targetPoint"/></mxGeometry>
+        </mxCell>
+        <mxCell id="m3" value="确认: YES-FAILOVER" style="endArrow=block;endFill=1;html=1;strokeWidth=1.5;fontSize=10;strokeColor=#3C3F42;fontColor=#151515;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="150" y="180" as="sourcePoint"/><mxPoint x="380" y="180" as="targetPoint"/></mxGeometry>
+        </mxCell>
+
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- Phase 2: Storage (5-10 min) — Yellow                -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <mxCell id="P2" value="&lt;b style=&apos;color:#151515&apos;&gt;Phase 2&lt;/b&gt;&lt;br&gt;&lt;span style=&apos;color:#3C3F42&apos;&gt;存储切换&lt;br&gt;5-10 min&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FDF7E7;strokeColor=#F0AB00;strokeWidth=2;fontSize=10;align=center;arcSize=10;" vertex="1" parent="1">
+          <mxGeometry x="0" y="205" width="72" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="m4" value="POST /replication_session/{id}/failover" style="endArrow=block;endFill=1;html=1;strokeWidth=1.5;fontSize=10;strokeColor=#3C3F42;fontColor=#151515;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="380" y="220" as="sourcePoint"/><mxPoint x="600" y="220" as="targetPoint"/></mxGeometry>
+        </mxCell>
+        <mxCell id="m5" value="Failover 完成, 所有 LUN Read-Write" style="endArrow=open;endFill=0;html=1;strokeWidth=1;dashed=1;fontSize=10;strokeColor=#6A6E73;fontColor=#6A6E73;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="600" y="252" as="sourcePoint"/><mxPoint x="380" y="252" as="targetPoint"/></mxGeometry>
+        </mxCell>
+
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- Phase 3: FC Scan (10-15 min) — Cyan                 -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <mxCell id="P3" value="&lt;b style=&apos;color:#151515&apos;&gt;Phase 3&lt;/b&gt;&lt;br&gt;&lt;span style=&apos;color:#3C3F42&apos;&gt;FC 扫描&lt;br&gt;10-15 min&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E5F5F5;strokeColor=#009596;strokeWidth=2;fontSize=10;align=center;arcSize=10;" vertex="1" parent="1">
+          <mxGeometry x="0" y="280" width="72" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="m6" value="oc debug node — rescan-scsi-bus &amp;amp; multipath" style="endArrow=block;endFill=1;html=1;strokeWidth=1.5;fontSize=10;strokeColor=#3C3F42;fontColor=#151515;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="380" y="295" as="sourcePoint"/><mxPoint x="815" y="295" as="targetPoint"/></mxGeometry>
+        </mxCell>
+        <mxCell id="m7" value="存储卷验证通过, CSI Driver Ready" style="endArrow=open;endFill=0;html=1;strokeWidth=1;dashed=1;fontSize=10;strokeColor=#6A6E73;fontColor=#6A6E73;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="815" y="325" as="sourcePoint"/><mxPoint x="380" y="325" as="targetPoint"/></mxGeometry>
+        </mxCell>
+
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- Phase 4a: P1 VMs (15-22 min) — Red                  -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <mxCell id="P4a" value="&lt;b style=&apos;color:#151515&apos;&gt;Phase 4a&lt;/b&gt;&lt;br&gt;&lt;span style=&apos;color:#3C3F42&apos;&gt;P1 核心&lt;br&gt;~15台&lt;br&gt;15-22 min&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF0F0;strokeColor=#CC0000;strokeWidth=2;fontSize=10;align=center;arcSize=10;" vertex="1" parent="1">
+          <mxGeometry x="0" y="360" width="72" height="75" as="geometry"/>
+        </mxCell>
+        <mxCell id="m8" value="创建 PV/PVC + 注入 CDI 注解 + 启动 P1 VM (forks=15)" style="endArrow=block;endFill=1;html=1;strokeWidth=1.5;fontSize=10;strokeColor=#CC0000;fontColor=#151515;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="380" y="375" as="sourcePoint"/><mxPoint x="815" y="375" as="targetPoint"/></mxGeometry>
+        </mxCell>
+        <mxCell id="m9" value="Boot ~15 VMs (AD/DNS/DHCP/DB)" style="endArrow=block;endFill=1;html=1;strokeWidth=1.5;fontSize=10;strokeColor=#CC0000;fontColor=#CC0000;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="815" y="398" as="sourcePoint"/><mxPoint x="1025" y="398" as="targetPoint"/></mxGeometry>
+        </mxCell>
+        <mxCell id="m10" value="virtctl ssh — 修改 P1 VM IP" style="endArrow=block;endFill=1;html=1;strokeWidth=1.5;fontSize=10;strokeColor=#3C3F42;fontColor=#151515;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="380" y="425" as="sourcePoint"/><mxPoint x="1025" y="425" as="targetPoint"/></mxGeometry>
+        </mxCell>
+
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- Phase 4b: Parallel (22-38 min) — Red                -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <mxCell id="P4b" value="&lt;b style=&apos;color:#151515&apos;&gt;Phase 4b&lt;/b&gt;&lt;br&gt;&lt;span style=&apos;color:#3C3F42&apos;&gt;P2+P3&lt;br&gt;+容器&lt;br&gt;并行&lt;br&gt;22-38 min&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF0F0;strokeColor=#CC0000;strokeWidth=2;fontSize=10;align=center;arcSize=10;" vertex="1" parent="1">
+          <mxGeometry x="0" y="460" width="72" height="110" as="geometry"/>
+        </mxCell>
+
+        <!-- Parallel frame — RH Blue -->
+        <mxCell id="par" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#0066CC;strokeWidth=2;dashed=1;dashPattern=6 3;" vertex="1" parent="1">
+          <mxGeometry x="350" y="455" width="700" height="115" as="geometry"/>
+        </mxCell>
+        <mxCell id="par_t" value="&lt;b style=&apos;color:#FFFFFF&apos;&gt;par [并行执行]&lt;/b&gt;" style="text;html=1;fontSize=10;align=left;fillColor=#0066CC;strokeColor=none;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="352" y="457" width="105" height="18" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="m11" value="启动 P2 VM (~35台, forks=35) — 关键业务" style="endArrow=block;endFill=1;html=1;strokeWidth=1.5;fontSize=10;strokeColor=#CC0000;fontColor=#151515;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="380" y="488" as="sourcePoint"/><mxPoint x="815" y="488" as="targetPoint"/></mxGeometry>
+        </mxCell>
+        <mxCell id="m12" value="启动 P3 VM (~50台, forks=50) — 重要业务" style="endArrow=block;endFill=1;html=1;strokeWidth=1.5;fontSize=10;strokeColor=#CC0000;fontColor=#151515;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="380" y="515" as="sourcePoint"/><mxPoint x="815" y="515" as="targetPoint"/></mxGeometry>
+        </mxCell>
+        <mxCell id="m13" value="Scale up 容器应用 (Deployment/StatefulSet)" style="endArrow=block;endFill=1;html=1;strokeWidth=1.5;fontSize=10;strokeColor=#CC0000;fontColor=#151515;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="380" y="542" as="sourcePoint"/><mxPoint x="815" y="542" as="targetPoint"/></mxGeometry>
+        </mxCell>
+        <mxCell id="m14" value="Boot" style="endArrow=block;endFill=1;html=1;strokeWidth=1;fontSize=9;strokeColor=#CC0000;fontColor=#CC0000;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="815" y="502" as="sourcePoint"/><mxPoint x="1025" y="502" as="targetPoint"/></mxGeometry>
+        </mxCell>
+        <mxCell id="m15" value="virtctl ssh — 批量修改 P2/P3 VM IP" style="endArrow=block;endFill=1;html=1;strokeWidth=1.5;fontSize=10;strokeColor=#3C3F42;fontColor=#151515;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="380" y="590" as="sourcePoint"/><mxPoint x="1025" y="590" as="targetPoint"/></mxGeometry>
+        </mxCell>
+
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- Phase 4c: P4 VMs (38-50 min) — Red                  -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <mxCell id="P4c" value="&lt;b style=&apos;color:#151515&apos;&gt;Phase 4c&lt;/b&gt;&lt;br&gt;&lt;span style=&apos;color:#3C3F42&apos;&gt;P4 一般&lt;br&gt;~100+台&lt;br&gt;38-50 min&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF0F0;strokeColor=#CC0000;strokeWidth=2;fontSize=10;align=center;arcSize=10;" vertex="1" parent="1">
+          <mxGeometry x="0" y="615" width="72" height="75" as="geometry"/>
+        </mxCell>
+        <mxCell id="m16" value="启动 P4 VM (~100+ 台, forks=50, 滚动执行)" style="endArrow=block;endFill=1;html=1;strokeWidth=1.5;fontSize=10;strokeColor=#CC0000;fontColor=#151515;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="380" y="630" as="sourcePoint"/><mxPoint x="815" y="630" as="targetPoint"/></mxGeometry>
+        </mxCell>
+        <mxCell id="m17" value="Boot ~100+ VMs" style="endArrow=block;endFill=1;html=1;strokeWidth=1;fontSize=9;strokeColor=#CC0000;fontColor=#CC0000;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="815" y="653" as="sourcePoint"/><mxPoint x="1025" y="653" as="targetPoint"/></mxGeometry>
+        </mxCell>
+        <mxCell id="m18" value="virtctl ssh — 批量修改 P4 VM IP" style="endArrow=block;endFill=1;html=1;strokeWidth=1.5;fontSize=10;strokeColor=#3C3F42;fontColor=#151515;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="380" y="680" as="sourcePoint"/><mxPoint x="1025" y="680" as="targetPoint"/></mxGeometry>
+        </mxCell>
+
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- Phase 5: Network (50-55 min) — Purple               -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <mxCell id="P5" value="&lt;b style=&apos;color:#151515&apos;&gt;Phase 5&lt;/b&gt;&lt;br&gt;&lt;span style=&apos;color:#3C3F42&apos;&gt;网络切换&lt;br&gt;50-55 min&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F2F0FC;strokeColor=#6753AC;strokeWidth=2;fontSize=10;align=center;arcSize=10;" vertex="1" parent="1">
+          <mxGeometry x="0" y="715" width="72" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="m19" value="PATCH: 禁用 DC1 Pool / 启用 DC2 Pool" style="endArrow=block;endFill=1;html=1;strokeWidth=1.5;fontSize=10;strokeColor=#3C3F42;fontColor=#151515;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="380" y="730" as="sourcePoint"/><mxPoint x="1230" y="730" as="targetPoint"/></mxGeometry>
+        </mxCell>
+        <mxCell id="m20" value="DNS 已切换至 DC2 VIP" style="endArrow=open;endFill=0;html=1;strokeWidth=1;dashed=1;fontSize=10;strokeColor=#6A6E73;fontColor=#6A6E73;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="1230" y="758" as="sourcePoint"/><mxPoint x="380" y="758" as="targetPoint"/></mxGeometry>
+        </mxCell>
+
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- Phase 6: Validation (55-60 min) — Green             -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <mxCell id="P6" value="&lt;b style=&apos;color:#151515&apos;&gt;Phase 6&lt;/b&gt;&lt;br&gt;&lt;span style=&apos;color:#3C3F42&apos;&gt;验收&lt;br&gt;55-60 min&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E9F7E7;strokeColor=#3E8635;strokeWidth=2;fontSize=10;align=center;arcSize=10;" vertex="1" parent="1">
+          <mxGeometry x="0" y="795" width="72" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="m21" value="验证所有 VMI Running + Pod Ready (forks=50)" style="endArrow=block;endFill=1;html=1;strokeWidth=1.5;fontSize=10;strokeColor=#3C3F42;fontColor=#151515;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="380" y="810" as="sourcePoint"/><mxPoint x="815" y="810" as="targetPoint"/></mxGeometry>
+        </mxCell>
+        <mxCell id="m22" value="应用级健康检查 (TCP/HTTP)" style="endArrow=block;endFill=1;html=1;strokeWidth=1.5;fontSize=10;strokeColor=#3C3F42;fontColor=#151515;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="380" y="835" as="sourcePoint"/><mxPoint x="1025" y="835" as="targetPoint"/></mxGeometry>
+        </mxCell>
+        <mxCell id="m23" value="验证结果 + set_stats 回传" style="endArrow=open;endFill=0;html=1;strokeWidth=1;dashed=1;fontSize=10;strokeColor=#6A6E73;fontColor=#6A6E73;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="815" y="860" as="sourcePoint"/><mxPoint x="380" y="860" as="targetPoint"/></mxGeometry>
+        </mxCell>
+        <mxCell id="m24" value="&lt;b style=&apos;color:#3E8635&apos;&gt;发送恢复报告 + 通知&lt;/b&gt;&lt;br&gt;&lt;span style=&apos;color:#3C3F42&apos;&gt;成功率 / 失败 VM 列表&lt;/span&gt;" style="endArrow=block;endFill=1;html=1;strokeWidth=2;fontSize=11;strokeColor=#3E8635;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="380" y="890" as="sourcePoint"/><mxPoint x="150" y="890" as="targetPoint"/></mxGeometry>
+        </mxCell>
+
+        <!-- ── RTO Summary Box — Red Hat styled ── -->
+        <mxCell id="rto_h" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#3C3F42;strokeColor=#3C3F42;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="1090" y="130" width="240" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="rto_ht" value="&lt;b style=&apos;color:#FFFFFF&apos;&gt;RTO 时间分解&lt;/b&gt;" style="text;html=1;fontSize=13;align=center;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1090" y="131" width="240" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="rto" value="&lt;table style=&apos;font-size:11px;border-collapse:collapse;color:#151515;width:100%&apos;&gt;&lt;tr&gt;&lt;td style=&apos;padding:4px 10px;border-bottom:1px solid #D2D2D2&apos;&gt;Phase 1 故障确认&lt;/td&gt;&lt;td style=&apos;text-align:right;padding:4px 10px;border-bottom:1px solid #D2D2D2&apos;&gt;5 min&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&apos;padding:4px 10px;border-bottom:1px solid #D2D2D2&apos;&gt;Phase 2 存储切换&lt;/td&gt;&lt;td style=&apos;text-align:right;padding:4px 10px;border-bottom:1px solid #D2D2D2&apos;&gt;5 min&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&apos;padding:4px 10px;border-bottom:1px solid #D2D2D2&apos;&gt;Phase 3 FC 扫描&lt;/td&gt;&lt;td style=&apos;text-align:right;padding:4px 10px;border-bottom:1px solid #D2D2D2&apos;&gt;5 min&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&apos;padding:4px 10px;border-bottom:1px solid #D2D2D2&apos;&gt;Phase 4 VM+容器恢复&lt;/td&gt;&lt;td style=&apos;text-align:right;padding:4px 10px;border-bottom:1px solid #D2D2D2&apos;&gt;35 min&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&apos;padding:4px 10px;border-bottom:1px solid #D2D2D2&apos;&gt;Phase 5 网络切换&lt;/td&gt;&lt;td style=&apos;text-align:right;padding:4px 10px;border-bottom:1px solid #D2D2D2&apos;&gt;5 min&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&apos;padding:4px 10px;border-bottom:1px solid #D2D2D2&apos;&gt;Phase 6 验收&lt;/td&gt;&lt;td style=&apos;text-align:right;padding:4px 10px;border-bottom:1px solid #D2D2D2&apos;&gt;5 min&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&apos;padding:6px 10px;font-weight:bold;color:#CC0000&apos;&gt;Total RTO&lt;/td&gt;&lt;td style=&apos;text-align:right;padding:6px 10px;font-weight:bold;color:#CC0000&apos;&gt;≤ 60 min&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#D2D2D2;strokeWidth=1;fontSize=11;align=left;verticalAlign=top;spacingTop=5;arcSize=4;" vertex="1" parent="1">
+          <mxGeometry x="1090" y="156" width="240" height="216" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+
+</mxfile>
