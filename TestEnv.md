@@ -1,12 +1,23 @@
-# Credentials for the OpenShift Console
-Your OpenShift cluster console is available here.
-https://console-openshift-console.apps.cluster-qdlml.dyn.redhatworkshops.io/
+# OpenShift Web Console URL
+https://console-openshift-console.apps.ocp.29b8w.sandbox3223.opentlc.com
 
-User: user1
-Password: vmyGzPiOYy7Zjf5d
+Cluster Admin User： admin
+
+Password：  YwyGGJHVK2YJ
+
+API URL
+https://api.ocp.29b8w.sandbox3223.opentlc.com:6443
+
+# Bastion SSH Access
+
+ssh lab-user@bastion.29b8w.sandbox3223.opentlc.com
+
+Bastion SSH Password
+
+edCpTmasY9EC
+
+# Centos01 vm
+用户名：centos
+密码：Centos01!
+
 # Version Information
-This edition of the OpenShift Virtualization Roadshow has been developed using the following software versions:
-Red Hat OpenShift 4.21.10
-Red Hat OpenShift Virtualization 4.21.3
-Red Hat OpenShift Data Foundation 4.21.2
-Red Hat OpenShift API for Data Protection (OADP) 1.5.5

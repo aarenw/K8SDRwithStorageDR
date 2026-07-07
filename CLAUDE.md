@@ -12,7 +12,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Technology Stack
 
 - **Target platform**: Kubernetes
-- **Automation**  Ansible
+- **Automation**  Ansible, Ansible Automaiton Platform 2.7
 - **Lauguage**  Ansible Playbook, Shell Sript and Python
 
 ## Development Commands
